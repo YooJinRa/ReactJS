@@ -1,6 +1,8 @@
 # 개념정리
 - Props : (방식) 부모 컴포넌트로부터 자식 컴포넌트에 데이터를 보낼 수 있게 해주는 방법
 
+- useState(data, function) : 첫 번째 요는 데이터를 나타내고, 두 번째 요는 데이터 값을 바꾸는 함수를 나타냄.
+
 - useEffect(() => {}, [dependency]) : dependency를 입력하면 state를 확인하면서 state가 변할때 마다 실행. dependency를 []빈 칸으로 두는 경우에는 더 이상 React.js 가 지켜볼 게 없어서 한 번만 실행
 
 - cleanup function : component가 destroy될 때 뭔가 할 수 있도록 해주는 것. / 사용 빈도는 많지는 않음.

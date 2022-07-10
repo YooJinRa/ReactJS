@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react"
 import {useParams, Link} from "react-router-dom"
+import styles from "./Detail.module.css"
 
 function Detail() {
     
@@ -23,23 +24,27 @@ function Detail() {
     }, [])
 
     return (
-        <div>
-            {loading ? <h1>Loading...</h1> : <div>
-                <h1>{movie.title_long}</h1>
-                <div>
-                    <ul>
-                    {movie.genres.map((g) => <li key={g}>{g}</li>)}
+        <div className={styles.detail__container}>
+            {loading ? (
+                <div className={styles.loader}>
+                    <span>Loading...</span>
+                </div>
+            ) : <div className={styles.movie}>
+                    <h1 className={styles.movie__title}>{movie.title_long}</h1>
+                    
+                    <ul className={styles.movie__genres}>
+                        {movie.genres.map((g) => <li key={g}>{g}</li>)}
                     </ul>
 
-                    <img src={movie.large_cover_image} alt={movie.title} />
+                    <img className={styles.movie__image} src={movie.large_cover_image} alt={movie.title} />
 
-                    <p>{movie.description_full}</p>
+                    <p className={styles.movie__desc}>{movie.description_full}</p>
 
-                    <button>
+                    <button className={styles.btn__home}>
                         <Link to="/">Go back to the List of Movies</Link>
                     </button>
 
-                </div>
+                
             </div>
             }
         </div>

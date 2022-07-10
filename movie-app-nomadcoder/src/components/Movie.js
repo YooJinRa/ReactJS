@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 import styles from "./Movie.module.css"
 
 function Movie({medium_cover_image, title, summary, genres, id, year}) {
-    // Movie Component는 이 properies를 다 부모 component로 부터 받아옴.
+    console.log(":: Movie.js ::")
     return (
         <div className={styles.movie}>
             <img className={styles.movie__img} src={medium_cover_image} alt={title} />

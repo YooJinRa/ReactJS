@@ -3,20 +3,28 @@ import Movie from "../components/Movie"
 import styles from "./Home.module.css"
 
 function Home() {
+  console.log(":: home.js ::")
   const [loading, setLoading] = useState(true)
   const [movies, setMovies] = useState([])
   const getMovies = async () => {
+    console.log(":: home.js :: getMovies() ::")
     const json = await (
       await fetch(
         `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year`
       )
-    ).json()
+    ).json();
+    console.log(":: 여기서 JSON ??::");
+    console.log('json::', json);
+    console.log(":: home.js :: getMovies() :: json loading ::")
     setMovies(json.data.movies)
     setLoading(false)
   };
   useEffect(() => {
-    getMovies()
+    console.log(":: home.js :: useEffect() ::")
+    getMovies();
+    console.log('After get Movies');
   }, []);
+  console.log("--------->>>>>>>>>>>>>>")
   return (
     <div className={styles.container}>
       {loading ? (

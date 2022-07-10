@@ -7,6 +7,7 @@ import Home from "./routes/Home"
 import Detail from "./routes/Detail"
 
 function App() {
+  console.log(":: App.js ::")
   return (
     <HashRouter>
       <Routes>

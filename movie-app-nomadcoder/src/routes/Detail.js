@@ -34,7 +34,6 @@ function Detail() {
                     <img src={movie.large_cover_image} alt={movie.title} />
 
                     <p>{movie.description_full}</p>
-                    <p><a href={movie.url} target="_blank">{movie.url}</a></p>
 
                     <button>
                         <Link to="/">Go back to the List of Movies</Link>

@@ -1,0 +1,55 @@
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Web Game</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!--<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>-->
+    <!--<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>-->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        'use strict';
+
+        class LikeButton extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {liked: false};
+            }
+            render() {
+                if (this.state.liked) {
+                    return 'You liked this';
+                }
+
+                //return React.createElement('button', {onClick: () => this.setState({liked: true})}, 'Like');
+                return (
+                        <button onClick={() => { this.setState({liked: true}); }}>
+                            {this.state.liked ? 'Liked' : 'Like!'}
+                            {[1, 2, 3].map((i) => {
+                                return <div>{i}</div>
+                            })}
+                        </button>
+                );
+            }
+        }
+    </script>
+    <script type="text/babel">
+        // ReactDOM.render(React.createElement(LikeButton), document.querySelector('#root'));
+
+        //ReactDOM.render(<LikeButton />, document.querySelector('#root')); //React 17버전 코드
+
+        ReactDOM.createRoot(document.querySelector('#root')).render(
+            <div>
+                <LikeButton />
+                <LikeButton />
+                <LikeButton />
+                <LikeButton />
+            </div>
+            
+        
+            ); //React 18버전 코드
+    </script>
+</body>
+</html>
